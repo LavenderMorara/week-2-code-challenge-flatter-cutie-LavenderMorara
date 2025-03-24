@@ -1,36 +1,38 @@
-// Your code here
-document.addEventListener('DOMContentLoaded',main)
-let baseUrl="http://localhost:3000";
+let baseUrl="https://flatacuties-backend-other.vercel.app";
 let serverData="characters"
 let fullUrl=`${baseUrl}/${serverData}`
+let clickedCharacter;
 
-function fetchCharacters(){
-    fetch(fullUrl,{
-        method:"GET"
-    })
+document.addEventListener('DOMContentLoaded',fetchCharaters)
+
+function fetchCharaters(){
+    fetch(`${fullUrl}`)
     .then(res=>res.json())
-    .then(data=>displayCharacters(data))
+    .then(data=>displayCharacter(data))
     .catch(err=>console.log(err))
 }
 
-function displayCharacters(serverData){
-    serverData.forEach(character => {
-    let namesBar=document.getElementById('character-bar')
-    let btn=document.createElement('button')
-    btn.id="characterName"
-    btn.textContent=`${character.name}`
-    btn.style.width="170px"
-    btn.style.height="40px"
-    btn.style.textAlign="center"
-    btn.style.padding="10px 30px"
-    btn.style.borderRadius="50px"
-    btn.style.backgroundColor="navy"
-    namesBar.appendChild(btn)       
-    });
+function displayCharacter(serverData){
+     serverData.forEach(character => {
+     const nameBar=document.querySelector('#character-bar')
+     const btn=document.createElement('button')
+     btn.addEventListener('click',()=>{
+        clickedCharacter===character
+        displayDetails(character)
+     })
+     btn.textContent=character.name
+     nameBar.appendChild(btn)
+   });
 }
 
 
-function main(){
-    fetchCharacters()
+function displayDetails(character){
+   const Name=document.querySelector('#name')
+   Name.textContent=character.name
+   const image=document.querySelector('#image')
+   image.src=character.image
+   image.alt=character.name
+   const Votes=document.querySelector('#vote-count')
+   Votes.textContent=character.votes
 }
 

@@ -1,33 +1,39 @@
 {
   "characters": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Mr. Cute",
-      "image": "https://thumbs.gfycat.com/EquatorialIckyCat-max-1mb.gif",
+      "image": "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWZjMW92eHB6MXNzeHliejF0OTFuaHc5dW85YjRtc3R4aTY0bDljcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/12XYXZMDDqHChy/giphy.gif",
       "votes": 0
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Mx. Monkey",
-      "image": "https://thumbs.gfycat.com/FatalInnocentAmericanshorthair-max-1mb.gif",
+      "image": "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2JvOGp0bmNsd2d3cHhvMnJtYzZqbjI0bjFkMGZ3aXRlM3phZ3kxYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/g4ODNTnpEBrmsghYtD/giphy.gif",
       "votes": 0
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Ms. Zebra",
       "image": "https://media2.giphy.com/media/20G9uNqE3K4dRjCppA/source.gif",
       "votes": 0
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Dr. Lion",
       "image": "http://bestanimations.com/Animals/Mammals/Cats/Lions/animated-lion-gif-11.gif",
       "votes": 0
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Mme. Panda",
       "image": "https://media.giphy.com/media/ALalVMOVR8Qw/giphy.gif",
+      "votes": 0
+    },
+    {
+      "id": "ca97",
+      "name": "chick",
+      "image": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYWJpZ21ubGNwbnJwaGczMmw2aHNzNmV5Y2JndGdzaW92NGkwdXVobSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l2JJIfI6nUkm5AzoQ/giphy.gif",
       "votes": 0
     }
   ]
