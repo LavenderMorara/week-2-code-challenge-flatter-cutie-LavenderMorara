@@ -58,3 +58,24 @@ votesForm.addEventListener('submit',(e)=>{
     })
     })
 
+    const resetButton=document.querySelector('#reset-btn')
+    resetButton.addEventListener('click',()=>{
+            fetch(`${fullUrl}/${clickedCharacter.id}`,{
+                method:"PATCH",
+                headers:{
+                  'Content-Type':'application/json'
+                },
+                body:JSON.stringify({votes:0})
+            } )
+            .then(() => {
+                window.location.reload();
+                displayDetails
+            })
+        })
+    
+    
+    
+    const addForm=document.getElementById('character-form')
+    addForm.addEventListener('submit',addNewCharacter)
+    
+    
