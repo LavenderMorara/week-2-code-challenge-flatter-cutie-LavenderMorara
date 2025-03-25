@@ -13,26 +13,48 @@ function fetchCharaters(){
 }
 
 function displayCharacter(serverData){
-     serverData.forEach(character => {
+serverData.forEach(character => {
      const nameBar=document.querySelector('#character-bar')
      const btn=document.createElement('button')
      btn.addEventListener('click',()=>{
-        clickedCharacter===character
+        clickedCharacter=character
         displayDetails(character)
-     })
-     btn.textContent=character.name
-     nameBar.appendChild(btn)
-   });
-}
+        console.log(clickedCharacter)
+        console.log(clickedCharacter.votes)
+    })
+    btn.textContent=character.name
+    nameBar.append(btn)
+})
 
+};
 
 function displayDetails(character){
-   const Name=document.querySelector('#name')
-   Name.textContent=character.name
-   const image=document.querySelector('#image')
-   image.src=character.image
-   image.alt=character.name
-   const Votes=document.querySelector('#vote-count')
-   Votes.textContent=character.votes
-}
+    const Name=document.querySelector('#name')
+    Name.textContent=character.name
+    const image=document.querySelector('#image')
+    image.src=character.image
+    image.alt=character.name
+    const Votes=document.querySelector('#vote-count')
+    Votes.textContent=character.votes
+ }
+
+const votesForm= document.querySelector('#votes-form')
+votesForm.addEventListener('submit',(e)=>{
+    e.preventDefault()
+    let currentVotes=parseInt(clickedCharacter.votes,10)
+    let addedVotes=parseInt(document.querySelector('#votes').value,10)
+    let newVotes=currentVotes+addedVotes
+    fetch(`${fullUrl}/${clickedCharacter.id}`,{
+        method:"PATCH",
+        headers:{
+          'Content-Type':'application/json'
+        },
+        body:JSON.stringify({votes:newVotes})
+    } )
+    .then(() => {
+        window.location.reload();
+        displayDetails
+        e.target.reset()
+    })
+    })
 
