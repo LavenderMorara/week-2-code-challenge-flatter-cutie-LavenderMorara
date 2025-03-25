@@ -51,11 +51,13 @@ votesForm.addEventListener('submit',(e)=>{
         },
         body:JSON.stringify({votes:newVotes})
     } )
-    .then(() => {
-        window.location.reload();
-        displayDetails
-        e.target.reset()
+    .then(()=>{
+       window.location.reload()        
     })
+    .then(()=>
+        displayDetails
+    )
+        e.target.reset()
     })
 
     const resetButton=document.querySelector('#reset-btn')
@@ -67,10 +69,12 @@ votesForm.addEventListener('submit',(e)=>{
                 },
                 body:JSON.stringify({votes:0})
             } )
-            .then(() => {
-                window.location.reload();
-                displayDetails
+            .then(()=>{
+                window.location.reload()
             })
+            .then(()=>
+               displayDetails
+            )
         })
     
     
