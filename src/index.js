@@ -78,4 +78,28 @@ votesForm.addEventListener('submit',(e)=>{
     const addForm=document.getElementById('character-form')
     addForm.addEventListener('submit',addNewCharacter)
     
-    
+    function addNewCharacter(e){
+        e.preventDefault()
+        const newName=document.querySelector('#new-name').value
+        const newImage=document.querySelector('#image-url').value
+        const newCharacter={
+            name:newName,
+            image:newImage,
+            votes:0
+        }
+        fetch(fullUrl,{
+            method:"POST",
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(newCharacter)
+        })
+        .then(res=>res.json())
+        .then(character=>{
+        const nameBar=document.querySelector('#character-bar')
+        const btn=document.createElement('button')
+        btn.textContent=character.name
+        nameBar.appendChild(btn)
+       })
+       .catch(err=>console.log(err))
+    }
